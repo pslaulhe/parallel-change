@@ -34,9 +34,15 @@ describe("shopping cart", () => {
     expect(cart.hasDiscount()).toBeTruthy();
   });
 
-  it("does not offer discount for cheap products", () => {
-    cart.add(10);
+  it("may offer discounts when there is at least one expensive product", () => {
+    cart.addItems(120, 30, 50);
 
-    expect(cart.hasDiscount()).toBeFalsy();
+    expect(cart.hasDiscountNew()).toBeTruthy();
+  });
+
+  it("does not offer discount for cheap products", () => {
+    cart.addItems(10, 30, 50);
+
+    expect(cart.hasDiscountNew()).toBeFalsy();
   });
 });

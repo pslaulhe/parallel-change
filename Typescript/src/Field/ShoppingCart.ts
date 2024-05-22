@@ -15,4 +15,6 @@ export class ShoppingCart {
   numberOfProductsNew = () => this.newPrices.length;
 
   hasDiscount = () => this.price > 100;
+
+  hasDiscountNew = () => this.newPrices.filter(x => x > 100).length > 0;
 }
