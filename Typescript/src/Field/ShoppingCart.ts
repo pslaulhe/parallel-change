@@ -3,6 +3,8 @@ export class ShoppingCart {
 
   add = (price: number) => (this.price = price);
 
+  addItems = (...prices: number[]) => (this.price = prices.reduce((x, y) => x + y))
+
   calculateTotalPrice = () => this.price;
 
   numberOfProducts = () => 1;

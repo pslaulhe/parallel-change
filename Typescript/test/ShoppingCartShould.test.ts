@@ -10,6 +10,12 @@ describe("shopping cart", () => {
     expect(cart.calculateTotalPrice()).toBe(10);
   });
 
+  it("calculates the final price for multiple items", () => {
+    cart.addItems(10, 15, 13);
+
+    expect(cart.calculateTotalPrice()).toBe(38);
+  });
+
   it("knows the number of items", () => {
     cart.add(10);
 
