@@ -13,13 +13,19 @@ describe("shopping cart", () => {
   it("calculates the final price for multiple items", () => {
     cart.addItems(10, 15, 13);
 
-    expect(cart.calculateTotalPrice()).toBe(38);
+    expect(cart.calculateNewTotalPrice()).toBe(38);
   });
 
   it("knows the number of items", () => {
     cart.add(10);
 
     expect(cart.numberOfProducts()).toBe(1);
+  });
+
+  it("knows the number of multiple items", () => {
+    cart.addItems(10, 15, 13);
+
+    expect(cart.numberOfProductsNew()).toBe(3);
   });
 
   it("may offer discounts when there is at least one expensive product", () => {
